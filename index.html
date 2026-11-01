@@ -1,0 +1,759 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="author" content="Betül TOY"><meta name="description" content="Betül TOY · Bilgisayar Mühendisi / Computer Engineer · 3B görselleştirme ve dijital ikiz portfolyosu"><style>:root{color-scheme:light}body{margin:0;font:14px system-ui}[hidden]{display:none!important}img{max-width:100%}</style><style>@font-face{font-family:"Archivo";src:url("fonts/Archivo.woff") format("woff");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4.woff") format("woff");font-weight:200 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-Italic.woff") format("woff");font-weight:200 900;font-style:italic;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("fonts/JetBrainsMono.woff") format("woff");font-weight:100 800;font-display:swap}
+</style></head><body><title>Betül TOY Showcase</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: a drawing-sheet portfolio. Full-bleed site imagery, each project opened by a technical title block, galleries in a measured grid. */
+:root{
+  --paper:#ECEFEC; --surface:#F7F8F6; --ink:#15201E; --muted:#56635E; --line:#C5CEC9;
+  --cell:#1F3D69; --walnut:#97582F; --on-dark:#F2F4F1; --scrim:rgba(10,16,15,.92);
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --s-1:.75rem; --s0:.875rem; --s1:1.0625rem; --s2:1.375rem; --s3:1.875rem; --s4:clamp(2.1rem,4.6vw,3.6rem); --s5:clamp(2.3rem,4.9vw,4.3rem);
+  --wrap:1240px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0E1412; --surface:#151D1A; --ink:#E4E9E5; --muted:#97A49E; --line:#2A3531;
+  --cell:#8CAEE3; --walnut:#D9925F; --on-dark:#F2F4F1; --scrim:rgba(4,8,7,.95); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E1412; --surface:#151D1A; --ink:#E4E9E5; --muted:#97A49E; --line:#2A3531;
+  --cell:#8CAEE3; --walnut:#D9925F; --on-dark:#F2F4F1; --scrim:rgba(4,8,7,.95); color-scheme:dark}
+
+:root[lang="en"] [data-l="tr"], :root:not([lang="en"]) [data-l="en"]{display:none!important}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s1);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--f-display);font-stretch:118%;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+.mono,.label{font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.06em}
+.label{text-transform:uppercase;color:var(--muted)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--cell);outline-offset:3px}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:1rem;min-height:60px;flex-wrap:wrap;padding-block:.5rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
+.mark{width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--ink);font-family:var(--f-display);font-weight:800;font-size:.8rem;letter-spacing:.04em}
+.brand b{font-family:var(--f-display);font-stretch:118%;font-weight:700;font-size:1rem;letter-spacing:.02em}
+.nav{display:flex;gap:1.25rem}
+.nav a{font-family:var(--f-mono);font-size:var(--s-1);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+@media (max-width:820px){.nav{display:none}}
+.seg{display:inline-flex;border:1px solid var(--ink)}
+.seg button{background:none;border:0;padding:.35rem .6rem;font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.06em}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--ink);background:none;padding:.45rem .8rem;font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--cell);border-color:var(--cell)}
+
+/* hero */
+.hero{padding-block:clamp(2.5rem,6vw,5rem) 2rem}
+.hero-grid{display:grid;gap:2.5rem;grid-template-columns:1fr}
+@media (min-width:980px){.hero-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:end}}
+.hero h1{font-size:var(--s5);font-weight:780}
+.hero h1 em{font-style:normal;color:var(--cell)}
+.lead{font-size:clamp(1.1rem,1.6vw,1.3rem);max-width:58ch;margin-top:1.4rem;color:var(--ink)}
+.who{margin-top:1.6rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:baseline}
+.who strong{font-family:var(--f-display);font-stretch:118%;font-size:1.15rem}
+.diptych{display:grid;grid-template-columns:1.25fr 1fr;gap:6px}
+.diptych figure{margin:0;position:relative;overflow:hidden;background:var(--line)}
+.diptych img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.diptych figure:first-child img{aspect-ratio:auto;height:100%}
+.tag{position:absolute;left:8px;bottom:8px;background:var(--scrim);color:var(--on-dark);font-family:var(--f-mono);font-size:.68rem;letter-spacing:.05em;padding:.3rem .5rem;max-width:calc(100% - 16px)}
+
+/* title block (drawing sheet) */
+.tblock{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border:1px solid var(--ink);margin-top:2.5rem}
+.tblock > div{padding:.7rem .9rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.tblock .label{display:block;margin-bottom:.2rem;font-size:.66rem}
+.tblock .v{font-family:var(--f-display);font-stretch:112%;font-weight:600;font-size:.98rem;line-height:1.25}
+
+/* index */
+.index{padding-block:3rem 1rem}
+.index-list{display:grid;gap:1.25rem;grid-template-columns:1fr;margin-top:1.25rem}
+@media (min-width:760px){.index-list{grid-template-columns:1fr 1fr}}
+.card{display:grid;grid-template-rows:auto 1fr;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
+.card img{aspect-ratio:16/9;object-fit:cover;width:100%;transition:transform .5s}
+.card .ph{overflow:hidden}
+.card:hover img{transform:scale(1.03)}
+.card .meta{padding:1rem 1.1rem 1.2rem;display:grid;gap:.4rem}
+.card h3{font-size:var(--s3);font-weight:750}
+.card p{color:var(--muted);font-size:var(--s0)}
+.code{font-family:var(--f-mono);font-size:var(--s-1);color:var(--cell);letter-spacing:.06em}
+
+/* project */
+.project{padding-block:4rem 2rem;border-top:1px solid var(--line);margin-top:3rem}
+.p-head{display:grid;gap:1rem;grid-template-columns:1fr}
+@media (min-width:980px){.p-head{grid-template-columns:minmax(0,1fr) auto;align-items:end}}
+.p-head h2{font-size:var(--s4);font-weight:800}
+.p-head .sub{font-size:1.15rem;color:var(--muted);margin-top:.6rem;max-width:60ch}
+.cover{margin-top:2rem;position:relative}
+.cover img{width:100%;aspect-ratio:16/8;object-fit:cover;cursor:zoom-in}
+.story{display:grid;gap:2rem 3rem;grid-template-columns:1fr;margin-top:3rem}
+@media (min-width:900px){.story{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.story section{min-width:0}
+.story h3{font-size:.8rem;font-family:var(--f-mono);font-stretch:100%;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--walnut);margin-bottom:.6rem}
+.story p{max-width:62ch}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-top:3rem;border-top:2px solid var(--ink)}
+.figs div{padding:1rem .9rem 1.1rem 0;border-bottom:1px solid var(--line)}
+.figs b{display:block;font-family:var(--f-display);font-stretch:112%;font-weight:800;font-size:clamp(1.45rem,2.3vw,1.95rem);white-space:nowrap;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.figs b small{font-size:.5em;font-weight:600;margin-left:.15em}
+.figs > div > span{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.sect-h{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-top:4rem;margin-bottom:1.1rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+.sect-h h3{font-size:var(--s2);font-weight:720}
+.sect-h p{color:var(--muted);font-size:var(--s0);max-width:60ch}
+
+/* galleries */
+.gal{display:grid;gap:6px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:760px){.gal{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.gal button{border:0;padding:0;background:var(--line);position:relative;overflow:hidden;display:block;text-align:left}
+.gal img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .45s,opacity .3s}
+.gal button:hover img{transform:scale(1.04)}
+.gal .cap{position:absolute;inset:auto 0 0 0;padding:.35rem .5rem;background:linear-gradient(transparent,rgba(8,12,11,.78));color:var(--on-dark);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.04em}
+.gal .wide{grid-column:span 2}
+.gal .wide img{aspect-ratio:16/9}
+.gal.ui{grid-template-columns:1fr}
+@media (min-width:760px){.gal.ui{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.gal.ui{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tree{background:repeating-conic-gradient(var(--surface) 0 25%,var(--paper) 0 50%) 0 0/18px 18px!important}
+.tree img{object-fit:contain}
+
+/* spec rows */
+.specs{display:grid;gap:1rem;grid-template-columns:1fr;margin-top:1.25rem}
+@media (min-width:760px){.specs{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.spec{border:1px solid var(--line);background:var(--surface);padding:1rem 1.1rem}
+.spec h4{margin:0 0 .5rem;font-family:var(--f-display);font-stretch:112%;font-size:1.05rem}
+.spec dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.25rem .9rem;font-size:var(--s0)}
+.spec dt{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding-top:.2rem}
+.spec dd{margin:0;font-variant-numeric:tabular-nums}
+
+/* floor plan */
+.plan{display:grid;gap:1.5rem;grid-template-columns:1fr;align-items:start}
+@media (min-width:900px){.plan{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+.plan-stage{position:relative;border:1px solid var(--line);background:var(--surface)}
+.plan-stage img{width:100%;aspect-ratio:1;object-fit:cover}
+.plan-stage svg{position:absolute;inset:0;width:100%;height:100%}
+.room{fill:rgba(31,61,105,0);stroke:rgba(255,255,255,0);stroke-width:3;cursor:pointer;transition:fill .2s,stroke .2s}
+.room:hover,.room.on{fill:rgba(31,61,105,.42);stroke:#fff}
+.room:focus-visible{outline:none;fill:rgba(31,61,105,.42);stroke:#fff}
+.mirror{fill:rgba(0,0,0,.28);pointer-events:none}
+.mirror-t{fill:#fff;font-family:var(--f-mono);font-size:22px;letter-spacing:2px}
+.plan-side .seg{margin-bottom:1rem}
+.rooms{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.rooms li button{width:100%;display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:baseline;background:none;border:0;border-bottom:1px solid var(--line);padding:.65rem .2rem;text-align:left}
+.rooms li button:hover,.rooms li button.on{background:var(--surface)}
+.rooms li button.on .rn{color:var(--cell)}
+.rn{font-family:var(--f-display);font-stretch:112%;font-weight:600}
+.ra{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.rooms .tot{display:grid;grid-template-columns:1fr auto;padding:.7rem .2rem;font-family:var(--f-mono);font-size:var(--s0);border-bottom:2px solid var(--ink)}
+.detail{margin-top:1rem;padding:1rem;border:1px solid var(--line);min-height:5.5rem;background:var(--surface)}
+.detail b{font-family:var(--f-display);font-stretch:112%}
+.note{font-size:var(--s0);color:var(--muted);margin-top:.75rem}
+
+/* features list */
+.feat{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--ink)}
+@media (min-width:760px){.feat{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:3rem}}
+.feat div{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line);font-size:var(--s0)}
+.feat dt{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding-top:.15rem}
+.feat dd{margin:0}
+@media (max-width:480px){.feat div{grid-template-columns:1fr;gap:.2rem}}
+
+/* capabilities */
+.caps{padding-block:4rem;border-top:1px solid var(--line);margin-top:3rem}
+.caps h2,.contact h2{font-size:var(--s4);font-weight:800}
+.cap-grid{display:grid;gap:0;grid-template-columns:1fr;margin-top:2rem;border-top:2px solid var(--ink)}
+@media (min-width:760px){.cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.cap-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.cap-grid article{padding:1.2rem 1.2rem 1.4rem 0;border-bottom:1px solid var(--line);min-width:0}
+.cap-grid h3{font-size:1.2rem;font-weight:700;margin-bottom:.5rem}
+.cap-grid p{font-size:var(--s0);color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+.tools span{font-family:var(--f-mono);font-size:var(--s-1);border:1px solid var(--line);padding:.3rem .6rem;background:var(--surface)}
+
+/* contact */
+.contact{background:var(--ink);color:var(--paper);padding-block:4.5rem}
+.contact .label{color:color-mix(in srgb,var(--paper) 65%,var(--ink))}
+.c-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+@media (min-width:900px){.c-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:end}}
+.contact p.lead{color:var(--paper)}
+.mail{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1rem}
+.mail code{font-family:var(--f-mono);font-size:clamp(1rem,2.2vw,1.35rem);user-select:all;word-break:break-all}
+.contact .btn{border-color:var(--paper);color:var(--paper)}
+.contact .btn:hover{background:var(--paper);color:var(--ink)}
+footer{padding-block:1.5rem;font-size:var(--s-1);color:var(--muted);font-family:var(--f-mono)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:var(--scrim);display:grid;grid-template-rows:auto 1fr auto;padding:calc(env(safe-area-inset-top,0px) + 10px) max(12px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 12px) max(12px,env(safe-area-inset-left,0px));color:var(--on-dark)}
+.lb-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:var(--f-mono);font-size:var(--s-1)}
+.lb-img{display:grid;place-items:center;min-height:0;padding:.75rem 0;touch-action:pan-y}
+.lb-img img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-img.alpha img{background:repeating-conic-gradient(#2a2f2d 0 25%,#1d2220 0 50%) 0 0/18px 18px}
+.lb-bot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.lb-cap{font-family:var(--f-body);font-size:1rem;max-width:70ch}
+.lb button{background:none;border:1px solid rgba(255,255,255,.5);color:var(--on-dark);padding:.45rem .8rem;font-family:var(--f-mono);font-size:var(--s-1)}
+.lb button:hover{background:rgba(255,255,255,.12)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 20px);z-index:60;background:var(--ink);color:var(--paper);padding:.7rem 1rem;font-family:var(--f-mono);font-size:var(--s-1);max-width:calc(100% - 32px)}
+
+/* print → PDF */
+@page{size:A4 landscape;margin:11mm 12mm}
+@media print{
+  :root{--paper:#fff;--surface:#F5F7F5;--ink:#15201E;--muted:#55625D;--line:#CCD4CF;--cell:#1F3D69;--walnut:#97582F;color-scheme:light}
+  html{font-size:12px}
+  body{background:#fff}
+  .bar,.lb,.toast,.no-print,.plan-side .seg{display:none!important}
+  .wrap{max-width:none;padding:0!important}
+  .hero{padding:0}
+  .hero-grid{grid-template-columns:1fr 1fr;align-items:center;gap:1.5rem}
+  .diptych img{aspect-ratio:4/5}
+  .index{display:none}
+  .project,.caps{break-before:page;border-top:0;margin-top:0;padding-top:0}
+  .cover img{aspect-ratio:16/6.2}
+  .story{grid-template-columns:repeat(4,1fr);gap:1rem 1.5rem;margin-top:1.2rem}
+  .story p{font-size:.95rem}
+  .figs{margin-top:1.2rem}
+  .sect-h{margin-top:0;break-before:page}
+  .gal{grid-template-columns:repeat(4,1fr)}
+  .gal.ui{grid-template-columns:repeat(4,1fr)}
+  .gal .cap{font-size:.62rem}
+  .gal button,.spec,.feat div,.cap-grid article,.figs div{break-inside:avoid}
+  .plan{grid-template-columns:.8fr 1fr}
+  .plan-stage{max-width:118mm}
+  .contact{break-before:page;background:#fff;color:var(--ink);padding:2rem 0;border-top:2px solid var(--ink)}
+  .contact p.lead{color:var(--ink)}
+  .contact .label{color:var(--muted)}
+  .detail{display:none}
+}
+
+/* cinematic intro */
+.brand{flex-wrap:wrap}
+.brand-sub{display:block;width:100%;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:-.15rem;padding-left:calc(34px + .6rem)}
+.cine{position:relative;min-height:clamp(560px,86vh,860px);display:flex;align-items:flex-end;overflow:hidden;background:#0B1110;color:#F3F5F2;isolation:isolate}
+.slides{position:absolute;inset:0;z-index:-2}
+.sl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity 1.6s ease,transform 9s linear}
+.sl.on{opacity:1;transform:scale(1)}
+.shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,12,11,.55) 0%,rgba(8,12,11,.15) 30%,rgba(8,12,11,.55) 62%,rgba(8,12,11,.94) 100%),linear-gradient(90deg,rgba(8,12,11,.7) 0%,rgba(8,12,11,0) 65%)}
+.cine-in{width:100%;padding-block:clamp(5rem,12vh,8rem) 2rem}
+.kicker{display:flex;align-items:center;gap:.8rem;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:#D6DDD8}
+.kicker .rule{width:44px;height:1px;background:#D6DDD8;flex:none}
+.cine-h{margin-top:1.3rem;max-width:17ch;font-size:clamp(2.4rem,6vw,5.2rem);font-weight:760;font-stretch:112%;line-height:1.0;letter-spacing:-.02em;color:#F7F8F5}
+.cine-h i{font-family:var(--f-body);font-style:italic;font-weight:400;font-stretch:100%;letter-spacing:-.01em;color:#C9DBF5}
+.cine-lead{margin-top:1.4rem;max-width:56ch;font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.6;color:#E1E6E2}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.btn.light{background:#F3F5F2;color:#0B1110;border-color:#F3F5F2;padding:.8rem 1.2rem}
+.btn.light:hover{background:#C9DBF5;border-color:#C9DBF5;color:#0B1110}
+.btn.ghost{border-color:rgba(243,245,242,.6);color:#F3F5F2;padding:.8rem 1.2rem}
+.btn.ghost:hover{background:rgba(243,245,242,.12);color:#F3F5F2}
+.cine-foot{display:grid;gap:1.5rem;grid-template-columns:1fr;margin-top:clamp(2.5rem,7vh,4.5rem);padding-top:1.2rem;border-top:1px solid rgba(243,245,242,.28)}
+@media (min-width:900px){.cine-foot{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:end}}
+.proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.5rem;margin:0}
+@media (min-width:640px){.proof{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.proof dt{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:#AEB9B4}
+.proof dd{margin:.25rem 0 0;font-family:var(--f-display);font-stretch:112%;font-weight:760;font-size:clamp(1.3rem,2vw,1.75rem);white-space:nowrap;font-variant-numeric:tabular-nums;color:#F7F8F5}
+.ticker{display:grid;gap:.5rem;min-width:0}
+.tk-cap{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:#D6DDD8;min-height:1.2em}
+.tk-bars{display:flex;gap:6px}
+.tk-bars button{flex:1;height:22px;background:none;border:0;padding:0;position:relative;cursor:pointer}
+.tk-bars button::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(243,245,242,.28)}
+.tk-bars button i{position:absolute;left:0;top:50%;height:2px;width:0;background:#F3F5F2}
+.tk-bars button.on i{animation:fill 7s linear forwards}
+.tk-bars button.done i{width:100%}
+@keyframes fill{to{width:100%}}
+@media (prefers-reduced-motion:reduce){.sl{transition:none;transform:none}.tk-bars button.on i{width:100%;animation:none}}
+/* about */
+.about{padding-block:clamp(3.5rem,8vw,6rem) 1rem}
+.about-grid{display:grid;gap:2rem;grid-template-columns:1fr}
+@media (min-width:900px){.about-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end}}
+.about h2{font-size:var(--s4);font-weight:780;margin-top:.7rem;max-width:18ch}
+.about-txt p{font-size:1.15rem;max-width:58ch}
+.sig{margin-top:1.2rem!important;display:grid;gap:.15rem;font-size:var(--s0)!important;color:var(--muted)}
+.sig b{font-family:var(--f-display);font-stretch:118%;color:var(--ink);font-size:1.05rem}
+.flow{list-style:none;margin:3rem 0 0;padding:0;display:grid;grid-template-columns:1fr;border-top:2px solid var(--ink)}
+@media (min-width:760px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.flow{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.flow li{position:relative;padding:1.3rem 1.4rem 1.5rem 0;border-bottom:1px solid var(--line);display:grid;gap:.5rem;align-content:start;min-width:0}
+@media (min-width:1100px){.flow li+li{padding-left:1.4rem;border-left:1px solid var(--line)}}
+.fn{font-family:var(--f-mono);font-size:.74rem;color:var(--cell);letter-spacing:.08em}
+.flow h3{font-size:1.5rem;font-weight:760}
+.flow p{font-size:var(--s0);color:var(--muted)}
+.ft{font-family:var(--f-mono);font-size:.68rem;color:var(--walnut);letter-spacing:.04em;margin-top:.3rem}
+@media print{.cine{min-height:0;break-after:page}.cine-in{padding-block:4rem 2rem}.cta,.ticker{display:none}.about{break-after:page}}
+.by{font-family:var(--f-mono);font-weight:400;font-size:.72rem;letter-spacing:.04em;color:var(--cell)}
+.share{margin-bottom:1.6rem}
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Betül TOY"><span class="mark">BT</span><b>Betül TOY</b><small class="brand-sub"><span data-l="tr">Bilgisayar Mühendisi</span><span data-l="en">Computer Engineer</span></small></a>
+    <nav class="nav" aria-label="Bölümler">
+      <a href="#serta"><span data-l="tr">Serta GES</span><span data-l="en">Serta Solar</span></a>
+      <a href="#villa"><span data-l="tr">İkiz Villa</span><span data-l="en">Twin Villa</span></a>
+      <a href="#yetkinlik"><span data-l="tr">Yetkinlikler</span><span data-l="en">Capabilities</span></a>
+      <a href="#iletisim"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
+    </nav>
+    <div class="seg" role="group" aria-label="Dil / Language">
+      <button id="l-tr" type="button" data-set="tr" aria-pressed="true">TR</button>
+      <button id="l-en" type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+    <button class="btn" id="htmlBtn" type="button" hidden><span data-l="tr">Vitrini indir</span><span data-l="en">Download</span> ↓</button>
+    <button class="btn solid" id="pdfBtn" type="button" hidden>PDF ↓</button>
+  </div>
+</header>
+
+<main id="top">
+<section class="cine" aria-label="Giriş">
+  <div class="slides" aria-hidden="true">
+    <img class="sl on" src="img/s-saha.webp" alt="" width="1600" height="900">
+    <img class="sl" src="img/v-havuz-bahce.webp" alt="" width="1600" height="900">
+    <img class="sl" src="img/s-panel-siralari.webp" alt="" width="1600" height="900">
+    <img class="sl" src="img/v-genel-proje.webp" alt="" width="1600" height="900">
+  </div>
+  <div class="shade"></div>
+  <div class="wrap cine-in">
+    <p class="kicker"><span class="rule"></span><span data-l="tr">Betül TOY · Bilgisayar Mühendisi</span><span data-l="en">Betül TOY · Computer Engineer</span></p>
+    <h1 class="cine-h"><span data-l="tr">Mühendislik verisini, yatırımcının içinde <i>yürüyebildiği</i> dünyalara dönüştürüyorum.</span><span data-l="en">I turn engineering data into worlds investors can <i>walk through</i>.</span></h1>
+    <p class="cine-lead"><span data-l="tr">Güneş enerjisi santralleri ve konut projeleri için çizimden ve saha verisinden dijital ikizler, fotogerçekçi görseller ve tarayıcıda çalışan 3B deneyimler geliştiriyorum. Proje daha inşa edilmeden görülür, gezilir ve anlaşılır.</span><span data-l="en">For solar power plants and residential projects, I build digital twins, photorealistic renders and in-browser 3D experiences from drawings and site data. A project can be seen, explored and understood before it is built.</span></p>
+    <div class="cta">
+      <a class="btn light" href="#serta"><span data-l="tr">Projeleri incele</span><span data-l="en">View the work</span> ↓</a>
+      <a class="btn ghost" href="#iletisim"><span data-l="tr">İletişime geç</span><span data-l="en">Get in touch</span></a>
+    </div>
+    <div class="cine-foot">
+      <dl class="proof">
+        <div><dt><span data-l="tr">Teslim edilen proje</span><span data-l="en">Projects delivered</span></dt><dd>2</dd></div>
+        <div><dt><span data-l="tr">Modellenen panel</span><span data-l="en">Panels modelled</span></dt><dd><span data-l="tr">38.246</span><span data-l="en">38,246</span></dd></div>
+        <div><dt><span data-l="tr">Dijital saha</span><span data-l="en">Digital site</span></dt><dd><span data-l="tr">22,20 ha</span><span data-l="en">22.20 ha</span></dd></div>
+        <div><dt><span data-l="tr">Arayüz dili</span><span data-l="en">Interface languages</span></dt><dd>TR · EN</dd></div>
+      </dl>
+      <div class="ticker" role="group" aria-label="Görseller">
+        <span class="tk-cap" id="tkCap" aria-live="polite"></span>
+        <div class="tk-bars" id="tkBars"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" aria-labelledby="aboutH">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="label"><span data-l="tr">Profil</span><span data-l="en">Profile</span></p>
+        <h2 id="aboutH"><span data-l="tr">Bir bilgisayar mühendisinin gözünden 3B görselleştirme</span><span data-l="en">3D visualization through a computer engineer's eyes</span></h2>
+      </div>
+      <div class="about-txt">
+        <p><span data-l="tr">Bilgisayar mühendisiyim. Görselleştirmeye bir yazılım projesi gibi yaklaşıyorum: veri doğru okunur, model ölçeklenebilir kurulur, deneyim test edilir ve belgelenerek teslim edilir. Bu sayede 38.246 panellik bir santral de, iki katlı bir villa da aynı titizlikle tarayıcıda akıcı çalışır.</span><span data-l="en">I am a computer engineer, and I approach visualization like a software project: the data is read correctly, the model is built to scale, the experience is tested, and the delivery is documented. That is how a 38,246-panel plant and a two-storey villa both run smoothly in a browser with the same rigour.</span></p>
+        <p class="sig"><b>Betül TOY</b><span data-l="tr">Bilgisayar Mühendisi · 3B Görselleştirme ve Dijital İkiz</span><span data-l="en">Computer Engineer · 3D Visualization and Digital Twins</span></p>
+      </div>
+    </div>
+    <ol class="flow">
+      <li><span class="fn">01</span><h3><span data-l="tr">Veri</span><span data-l="en">Data</span></h3><p><span data-l="tr">DWG çizimleri, yerleşim planları, ekipman föyleri ve konum bilgisi tek bir doğruluk kaynağında toplanır.</span><span data-l="en">DWG drawings, layout plans, equipment datasheets and location data are gathered into one source of truth.</span></p><span class="ft">DWG · PDF · JSON</span></li>
+      <li><span class="fn">02</span><h3><span data-l="tr">Model</span><span data-l="en">Model</span></h3><p><span data-l="tr">Blender'da ölçekli sahne kurulur; tekrar eden binlerce öge ortak modellerden örneklenir, malzeme ve ışık gerçeğe göre ayarlanır.</span><span data-l="en">A to-scale scene is built in Blender; thousands of repeated elements are instanced, and materials and light are tuned to reality.</span></p><span class="ft">Blender · Cycles · FBX</span></li>
+      <li><span class="fn">03</span><h3><span data-l="tr">Deneyim</span><span data-l="en">Experience</span></h3><p><span data-l="tr">Unity ile rehberli tur, teknik föy ve gündüz/gece senaryoları kodlanır; WebGL olarak her siteye gömülebilir şekilde paketlenir.</span><span data-l="en">Guided tours, datasheets and day/night scenarios are coded in Unity and packaged as WebGL that embeds in any website.</span></p><span class="ft">Unity 6 · C# · HLSL · WebGL</span></li>
+      <li><span class="fn">04</span><h3><span data-l="tr">Teslim</span><span data-l="en">Delivery</span></h3><p><span data-l="tr">Kontrol raporu, kullanım kılavuzu, gömme kodu ve düzenlenebilir kaynak projelerle müşteriye eksiksiz bir paket verilir.</span><span data-l="en">The client receives a complete package: test report, user guide, embed code and editable source projects.</span></p><span class="ft">iframe · Next.js · SHA-256</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="index no-print" aria-label="Projeler">
+  <div class="wrap">
+    <p class="label"><span data-l="tr">Seçilmiş işler</span><span data-l="en">Selected work</span></p>
+    <div class="index-list">
+      <a class="card" href="#serta">
+        <div class="ph"><img src="img/s-ust-gorunus-t.webp" alt="" width="760" height="428" loading="lazy"></div>
+        <div class="meta"><span class="code">P-01 · GES / SOLAR · ÇANAKKALE</span><h3><span data-l="tr">Serta GES dijital ikizi</span><span data-l="en">Serta Solar Plant digital twin</span></h3><p><span data-l="tr">22,20 hektarlık santralin yürünebilir 3B web modeli, ekipman föyleri ve rehberli tur.</span><span data-l="en">A walkable 3D web model of a 22.20-hectare plant, with equipment datasheets and a guided tour.</span></p></div>
+      </a>
+      <a class="card" href="#villa">
+        <div class="ph"><img src="img/v-havuz-bahce-t.webp" alt="" width="760" height="428" loading="lazy"></div>
+        <div class="meta"><span class="code">P-02 · KONUT / RESIDENTIAL</span><h3><span data-l="tr">İkiz Villa</span><span data-l="en">Twin Villa</span></h3><p><span data-l="tr">İki simetrik 3+1 villa için fotogerçekçi render seti ve gündüz/gece sanal tur.</span><span data-l="en">A photorealistic render set and a day/night virtual tour for two mirrored 3+1 villas.</span></p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECT 1 ============ -->
+<article class="project" id="serta">
+  <div class="wrap">
+    <div class="p-head">
+      <div>
+        <span class="code">P-01</span>
+        <h2 style="margin-top:.4rem"><span data-l="tr">Serta GES</span><span data-l="en">Serta Solar Power Plant</span></h2>
+        <p class="sub"><span data-l="tr">Ormanlık ve eğimli bir arazideki güneş santralinin, tarayıcıda yürünerek incelenebilen dijital ikizi.</span><span data-l="en">A digital twin of a solar plant on forested, sloping land that visitors can walk through in the browser.</span></p>
+      </div>
+      <span class="label">WHR4+CR · Gökçeiçi / Bayramiç / Çanakkale</span>
+    </div>
+
+    <div class="tblock">
+      <div><span class="label"><span data-l="tr">Paydaşlar</span><span data-l="en">Parties</span></span><span class="v">HTS Solar × CMB Solar</span></div>
+      <div><span class="label"><span data-l="tr">Tür</span><span data-l="en">Type</span></span><span class="v"><span data-l="tr">Arazi tipi GES</span><span data-l="en">Ground-mounted PV</span></span></div>
+      <div><span class="label"><span data-l="tr">Teslim</span><span data-l="en">Delivered</span></span><span class="v"><span data-l="tr">28 Ekim 2026 · Web V2</span><span data-l="en">28 Oct 2026 · Web V2</span></span></div>
+      <div><span class="label"><span data-l="tr">Motor</span><span data-l="en">Engine</span></span><span class="v">Unity 6000.4.9f1 · URP · WebGL 2</span></div>
+      <div><span class="label"><span data-l="tr">Görseller</span><span data-l="en">Imagery</span></span><span class="v">Blender · 1920×1080</span></div>
+    </div>
+
+    <figure class="cover" style="margin-inline:0"><img src="img/s-saha.webp" alt="Serta GES genel saha görünümü" data-lb="s-saha" width="1600" height="900" loading="lazy"><span class="tag"><span data-l="tr">Genel saha · 846 panel masası, 10 trafo köşkü</span><span data-l="en">Site overview · 846 panel tables, 10 transformer kiosks</span></span></figure>
+
+    <div class="story">
+      <section><h3><span data-l="tr">İhtiyaç</span><span data-l="en">Brief</span></h3><p><span data-l="tr">Çanakkale Bayramiç'te ormanla çevrili, parçalı ve eğimli bir arazide kurulacak santralin, yatırımcılar ve paydaşlar tarafından sahaya gitmeden, yerinde görmüş gibi incelenmesi gerekiyordu.</span><span data-l="en">The plant sits on fragmented, sloping land surrounded by forest in Bayramiç, Çanakkale. Investors and partners needed to inspect it as if they were on site, without travelling there.</span></p></section>
+      <section><h3><span data-l="tr">Yaklaşım</span><span data-l="en">Approach</span></h3><p><span data-l="tr">Saha, yerleşim planına bağlı tek bir 3B model olarak kuruldu: panel masaları, invertörler, trafo köşkleri, çit, kapılar, yürüyüş yolları ve orman dokusu. Tekrar eden her öge ortak modellerden örneklendi; böylece 38.246 panel ve 20.843 ağaç tarayıcıda akıcı çalışan bir pakete sığdı.</span><span data-l="en">The site was built as one 3D model tied to the layout plan: panel tables, inverters, transformer kiosks, fencing, gates, walkways and forest. Every repeated element is instanced from a shared model, which lets 38,246 panels and 20,843 trees run smoothly in a browser.</span></p></section>
+      <section><h3><span data-l="tr">Rolüm</span><span data-l="en">My role</span></h3><p><span data-l="tr">Saha ve ekipman modellemesi, render seti, Unity etkileşim tasarımı ve kodu, WebGL şablonu, siteye gömme kılavuzu ve müşteri teslim paketi.</span><span data-l="en">Site and equipment modelling, the render set, Unity interaction design and code, the WebGL template, the website embed guide and the client delivery package.</span></p></section>
+      <section><h3><span data-l="tr">Sonuç</span><span data-l="en">Outcome</span></h3><p><span data-l="tr">Yayına hazır web uygulaması, düzenlenebilir Unity projesi, kontrol raporu ve SHA-256 dosya listesiyle teslim edildi. Tarayıcı testlerinde JavaScript ve Unity hata kaydı sıfırdı.</span><span data-l="en">Delivered as a ready-to-host web app, an editable Unity project, a test report and a SHA-256 file manifest. Browser tests logged zero JavaScript or Unity errors.</span></p></section>
+    </div>
+
+    <div class="figs">
+      <div><b><span data-l="tr">38.246</span><span data-l="en">38,246</span></b><span data-l="tr">Panel</span><span data-l="en">Panels</span></div>
+      <div><b>846</b><span data-l="tr">Panel masası</span><span data-l="en">Panel tables</span></div>
+      <div><b>63</b><span data-l="tr">İnvertör</span><span data-l="en">Inverters</span></div>
+      <div><b>10</b><span data-l="tr">Trafo köşkü</span><span data-l="en">Transformer kiosks</span></div>
+      <div><b><span data-l="tr">22,20</span><span data-l="en">22.20</span><small>ha</small></b><span data-l="tr">Model alanı</span><span data-l="en">Model area</span></div>
+      <div><b><span data-l="tr">2,53</span><span data-l="en">2.53</span><small>km</small></b><span data-l="tr">Yürüyüş rotası</span><span data-l="en">Walking route</span></div>
+      <div><b><span data-l="tr">20.843</span><span data-l="en">20,843</span></b><span data-l="tr">Ağaç örneği</span><span data-l="en">Tree instances</span></div>
+    </div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Etkileşimli uygulama</span><span data-l="en">The interactive app</span></h3>
+      <p><span data-l="tr">Uygulamadan gerçek ekran görüntüleri. Ziyaretçi rotada yürür, rehberli turu 1×–2× hızda izler, ekipmana tıklayıp föyü %500'e kadar büyütür.</span><span data-l="en">Real screenshots from the app. Visitors walk the route, follow a guided tour at 1×–2× speed, click any equipment and zoom its datasheet up to 500%.</span></p>
+    </div>
+    <div class="gal ui" id="g-serta-ui"></div>
+
+    <div class="specs">
+      <div class="spec"><h4><span data-l="tr">Panel · ASTRO N5</span><span data-l="en">Module · ASTRO N5</span></h4><dl>
+        <dt><span data-l="tr">Güç</span><span data-l="en">Power</span></dt><dd>570–595 W</dd>
+        <dt><span data-l="tr">Verim</span><span data-l="en">Efficiency</span></dt><dd><span data-l="tr">%22,1–23,0 (STC)</span><span data-l="en">22.1–23.0% (STC)</span></dd>
+        <dt><span data-l="tr">Hücre</span><span data-l="en">Cells</span></dt><dd><span data-l="tr">144 hücre, N tipi TOPCon, çift cam</span><span data-l="en">144 cells, N-type TOPCon, dual glass</span></dd></dl></div>
+      <div class="spec"><h4><span data-l="tr">İnvertör · HYXi 350K</span><span data-l="en">Inverter · HYXi 350K</span></h4><dl>
+        <dt><span data-l="tr">AC güç</span><span data-l="en">AC power</span></dt><dd>352 kW / 352 kVA</dd>
+        <dt><span data-l="tr">Verim</span><span data-l="en">Efficiency</span></dt><dd><span data-l="tr">maks. ≥%99,03</span><span data-l="en">max ≥99.03%</span></dd>
+        <dt>MPPT</dt><dd><span data-l="tr">6 MPPT, 850–1350 V tam yük</span><span data-l="en">6 MPPT, 850–1350 V full load</span></dd></dl></div>
+      <div class="spec"><h4><span data-l="tr">Enerji akışı</span><span data-l="en">Energy path</span></h4><dl>
+        <dt><span data-l="tr">Zincir</span><span data-l="en">Chain</span></dt><dd><span data-l="tr">PV modül → DC dizi → İnvertör → AC toplama → Trafo → Şebeke</span><span data-l="en">PV module → DC string → Inverter → AC collection → Transformer → Grid</span></dd>
+        <dt><span data-l="tr">Rota</span><span data-l="en">Route</span></dt><dd><span data-l="tr">1,40 m genişlik, 1,68 m göz yüksekliği</span><span data-l="en">1.40 m wide, 1.68 m eye height</span></dd></dl></div>
+    </div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Saha ve ekipman görselleri</span><span data-l="en">Site and equipment renders</span></h3>
+      <p><span data-l="tr">16 görsel, Blender çalışma modelinden 1920×1080. Son karede ağaç varlığı şeffaf fonla ayrıca verildi.</span><span data-l="en">16 images at 1920×1080 from the Blender working model. The last frame delivers the tree asset on a transparent background.</span></p>
+    </div>
+    <div class="gal" id="g-serta"></div>
+  </div>
+</article>
+
+<!-- ============ PROJECT 2 ============ -->
+<article class="project" id="villa">
+  <div class="wrap">
+    <div class="p-head">
+      <div>
+        <span class="code">P-02</span>
+        <h2 style="margin-top:.4rem"><span data-l="tr">İkiz Villa</span><span data-l="en">Twin Villa</span></h2>
+        <p class="sub"><span data-l="tr">Birbirinin simetriği iki bağımsız 3+1 villa: her birinin kendi havuzu, bahçesi, üst kat terası ve otoparkı var.</span><span data-l="en">Two mirrored, independent 3+1 villas, each with its own pool, garden, upper terrace and parking.</span></p>
+      </div>
+      <span class="label"><span data-l="tr">Teslim 01.11.2026</span><span data-l="en">Delivered 01.11.2026</span></span>
+    </div>
+
+    <div class="tblock">
+      <div><span class="label"><span data-l="tr">Hazırlayan</span><span data-l="en">Prepared by</span></span><span class="v">HTS Solar Enerji A.Ş.<br><span class="by"><span data-l="tr">Betül TOY tarafından</span><span data-l="en">by Betül TOY</span></span></span></div>
+      <div><span class="label"><span data-l="tr">Net iç alan</span><span data-l="en">Net interior</span></span><span class="v"><span data-l="tr">101,47 m² / villa</span><span data-l="en">101.47 m² / villa</span></span></div>
+      <div><span class="label"><span data-l="tr">Cephe genişliği</span><span data-l="en">Facade width</span></span><span class="v"><span data-l="tr">15,6 m (iki villa)</span><span data-l="en">15.6 m (both villas)</span></span></div>
+      <div><span class="label">Render</span><span class="v">Cycles GPU · 192 spp · AgX</span></div>
+      <div><span class="label"><span data-l="tr">Sanal tur</span><span data-l="en">Virtual tour</span></span><span class="v">Unity 6 · URP · WebGL</span></div>
+    </div>
+
+    <figure class="cover" style="margin-inline:0"><img src="img/v-havuz-bahce.webp" alt="İkiz Villa havuz ve bahçe" data-lb="v-havuz-bahce" width="1600" height="900" loading="lazy"><span class="tag"><span data-l="tr">Havuz ve bahçe cephesi</span><span data-l="en">Pool and garden facade</span></span></figure>
+
+    <div class="story">
+      <section><h3><span data-l="tr">İhtiyaç</span><span data-l="en">Brief</span></h3><p><span data-l="tr">Satış ve sunum için, mimari çizimi okumayan bir alıcının da evi anlayabileceği görseller ve kendi başına gezebileceği bir sanal tur.</span><span data-l="en">Imagery for sales and presentations that a buyer can understand without reading drawings, plus a virtual tour they can explore on their own.</span></p></section>
+      <section><h3><span data-l="tr">Yaklaşım</span><span data-l="en">Approach</span></h3><p><span data-l="tr">Mimari DWG çizimi Blender 5.2'de tam bir sahneye dönüştürüldü: antrasit tuğla ve mineral sıva cephe, ceviz lameller, mozaik havuzlar, traverten yollar. Aynı model Unity 6'ya taşındı; gündüz, gün batımı ve gece ışığı, kat kesitleri ve odalardaki bilgi noktalarıyla bir web turu oldu.</span><span data-l="en">The architectural DWG became a full Blender 5.2 scene: anthracite brick and mineral render facade, walnut louvres, mosaic pools, travertine paths. The same model moved into Unity 6 as a web tour with day, sunset and night lighting, floor cut-aways and room hotspots.</span></p></section>
+      <section><h3><span data-l="tr">Rolüm</span><span data-l="en">My role</span></h3><p><span data-l="tr">Modelleme, malzeme ve ışık, 8 kameralı render seti, peyzaj, Unity tur geliştirme, TR/EN arayüz, FBX dışa aktarımı ve teslim dokümanı.</span><span data-l="en">Modelling, materials and lighting, an 8-camera render set, landscaping, Unity tour development, the TR/EN interface, FBX export and the delivery document.</span></p></section>
+      <section><h3><span data-l="tr">Sonuç</span><span data-l="en">Outcome</span></h3><p><span data-l="tr">Görseller, 3B kat planları, web turu, FBX modeli, Blender kaynağı ve Unity projesini içeren altı bölümlük bir paket. Tur, kodu kopyalanarak her web sitesine gömülebilir.</span><span data-l="en">A six-part package: renders, 3D floor plans, the web tour, an FBX model, the Blender source and the Unity project. The tour can be embedded in any website with a copy-paste snippet.</span></p></section>
+    </div>
+
+    <div class="figs">
+      <div><b>2</b><span data-l="tr">Simetrik villa</span><span data-l="en">Mirrored villas</span></div>
+      <div><b><span data-l="tr">101,47</span><span data-l="en">101.47</span><small>m²</small></b><span data-l="tr">Net alan / villa</span><span data-l="en">Net area / villa</span></div>
+      <div><b>8</b><span data-l="tr">Render kamerası</span><span data-l="en">Render cameras</span></div>
+      <div><b><span data-l="tr">~1.600</span><span data-l="en">~1,600</span></b><span data-l="tr">Mimari nesne</span><span data-l="en">Architectural objects</span></div>
+      <div><b><span data-l="tr">59.319</span><span data-l="en">59,319</span></b><span data-l="tr">Bitki örneği</span><span data-l="en">Plant instances</span></div>
+      <div><b>3</b><span data-l="tr">Işık senaryosu</span><span data-l="en">Lighting modes</span></div>
+    </div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Fotogerçekçi görseller</span><span data-l="en">Photorealistic renders</span></h3>
+      <p><span data-l="tr">Sekiz kamera, Blender Cycles ile 1920×1080. Görseli tam ekran açmak için tıklayın.</span><span data-l="en">Eight cameras rendered in Blender Cycles at 1920×1080. Click any image to view it full screen.</span></p>
+    </div>
+    <div class="gal" id="g-villa"></div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Etkileşimli kat planı</span><span data-l="en">Interactive floor plan</span></h3>
+      <p><span data-l="tr">Villa A. Plan üzerinde veya listede bir mekâna dokunun. Alanlar mimari DWG'den alınan net oda alanlarıdır.</span><span data-l="en">Villa A. Tap a space on the plan or in the list. Areas are net room areas taken from the architectural DWG.</span></p>
+    </div>
+    <div class="plan">
+      <div class="plan-stage">
+        <img id="planImg" src="img/plan-alt.webp" alt="Alt kat 3B planı" width="1024" height="1024" loading="lazy">
+        <svg id="planSvg" viewBox="0 0 1024 1024" aria-label="Kat planı"></svg>
+      </div>
+      <div class="plan-side">
+        <div class="seg" role="group" aria-label="Kat">
+          <button id="f-alt" type="button" data-floor="alt" aria-pressed="true"><span data-l="tr">Alt kat</span><span data-l="en">Ground floor</span></button>
+          <button id="f-ust" type="button" data-floor="ust" aria-pressed="false"><span data-l="tr">Üst kat</span><span data-l="en">Upper floor</span></button>
+        </div>
+        <ul class="rooms" id="roomList"></ul>
+        <div class="detail" id="roomDetail" aria-live="polite"></div>
+        <p class="note"><span data-l="tr">Villa B, Villa A'nın ayna simetriğidir. Villa toplamı (net iç alan): 101,47 m²; bahçe terası 13,88 m² bu toplama dahil değildir.</span><span data-l="en">Villa B mirrors Villa A. Villa total (net interior): 101.47 m²; the 13.88 m² garden terrace is not included.</span></p>
+      </div>
+    </div>
+    <div class="no-print" id="planPrint"></div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Sanal tur</span><span data-l="en">Virtual tour</span></h3>
+      <p><span data-l="tr">Tarayıcıda çalışır, kurulum gerektirmez. Ziyaretçi “Turu Başlat”a basınca yüklenir, sayfa hızını etkilemez.</span><span data-l="en">Runs in the browser with no install. It loads only when the visitor presses “Start tour”, so the host page stays fast.</span></p>
+    </div>
+    <dl class="feat">
+      <div><dt><span data-l="tr">Bölümler</span><span data-l="en">Sections</span></dt><dd><span data-l="tr">Genel görünüm, ön cephe, bahçe, teras, alt kat, üst kat, odalar</span><span data-l="en">Overview, facade, garden, terrace, ground floor, upper floor, rooms</span></dd></div>
+      <div><dt><span data-l="tr">Gezinti</span><span data-l="en">Walk-through</span></dt><dd><span data-l="tr">Villa A girişinden başlayan, merdiven dahil serbest yürüyüş</span><span data-l="en">Free walk from the Villa A entrance, stairs included</span></dd></div>
+      <div><dt><span data-l="tr">Kat kesitleri</span><span data-l="en">Cut-aways</span></dt><dd><span data-l="tr">Duvarlar kesilir, odalar yukarıdan görülür</span><span data-l="en">Walls are cut so rooms are seen from above</span></dd></div>
+      <div><dt><span data-l="tr">Bilgi noktaları</span><span data-l="en">Hotspots</span></dt><dd><span data-l="tr">Oda adı, alanı ve açıklaması</span><span data-l="en">Room name, area and description</span></dd></div>
+      <div><dt><span data-l="tr">Işık</span><span data-l="en">Lighting</span></dt><dd><span data-l="tr">Gündüz, gün batımı, gece; iç ve bahçe aydınlatması değişir</span><span data-l="en">Day, sunset, night; interior and garden lights respond</span></dd></div>
+      <div><dt><span data-l="tr">Kontroller</span><span data-l="en">Controls</span></dt><dd><span data-l="tr">Masaüstü WASD + fare; mobilde joystick ve iki parmak yakınlaştırma</span><span data-l="en">Desktop WASD + mouse; mobile joystick and pinch zoom</span></dd></div>
+      <div><dt><span data-l="tr">Diğer</span><span data-l="en">Also</span></dt><dd><span data-l="tr">TR | EN dil, ortam sesi, ekran görüntüsü, tam ekran</span><span data-l="en">TR | EN language, ambient sound, screenshot, full screen</span></dd></div>
+      <div><dt><span data-l="tr">Entegrasyon</span><span data-l="en">Integration</span></dt><dd><span data-l="tr">iframe veya Next.js bileşeni; ek sunucu ayarı gerekmez</span><span data-l="en">iframe or Next.js component; no extra server setup</span></dd></div>
+    </dl>
+  </div>
+</article>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="caps" id="yetkinlik">
+  <div class="wrap">
+    <p class="label"><span data-l="tr">Ne yapıyorum</span><span data-l="en">What I do</span></p>
+    <h2 style="margin-top:.6rem"><span data-l="tr">Çizimden teslim paketine tek hat</span><span data-l="en">One line from drawing to delivery</span></h2>
+    <div class="cap-grid">
+      <article><h3><span data-l="tr">Fotogerçekçi görselleştirme</span><span data-l="en">Photorealistic visualization</span></h3><p><span data-l="tr">DWG ve yerleşim planından Blender sahnesi; malzeme, ışık ve peyzajla satışa ve sunuma hazır render setleri.</span><span data-l="en">Blender scenes built from DWG and layout plans, with materials, lighting and landscaping, ready for sales and presentations.</span></p></article>
+      <article><h3><span data-l="tr">Dijital ikiz ve saha modeli</span><span data-l="en">Digital twins and site models</span></h3><p><span data-l="tr">On binlerce panel ve ağacı ortak modellerden örnekleyerek büyük sahaları hafif ve doğru tutan 3B modeller.</span><span data-l="en">3D models that keep large sites light and accurate by instancing tens of thousands of panels and trees.</span></p></article>
+      <article><h3><span data-l="tr">Etkileşimli web deneyimleri</span><span data-l="en">Interactive web experiences</span></h3><p><span data-l="tr">Unity 6 ve WebGL ile rehberli turlar, ekipman föyleri, kat kesitleri, gündüz/gece ve iki dilli arayüz.</span><span data-l="en">Guided tours, equipment datasheets, floor cut-aways, day/night lighting and bilingual interfaces in Unity 6 and WebGL.</span></p></article>
+      <article><h3><span data-l="tr">Teslim mühendisliği</span><span data-l="en">Delivery engineering</span></h3><p><span data-l="tr">Siteye gömme kodu, kullanım kılavuzu, kontrol raporu, dosya bütünlüğü listesi ve düzenlenebilir kaynak projeler.</span><span data-l="en">Embed snippets, user guides, test reports, file-integrity manifests and editable source projects.</span></p></article>
+    </div>
+    <div class="tools">
+      <span>Blender 5.2 · Cycles</span><span>Unity 6 · URP</span><span>WebGL 2</span><span>C# · HLSL</span><span>FBX · JSON</span><span>DWG</span><span>iframe · Next.js embed</span>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="iletisim">
+  <div class="wrap c-grid">
+    <div>
+      <p class="label"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></p>
+      <h2 style="margin-top:.6rem"><span data-l="tr">Projenizi birlikte gezelim.</span><span data-l="en">Let's walk through your project.</span></h2>
+      <p class="lead"><span data-l="tr">Canlı 3B turlar talep üzerine paylaşılır. Bir sonraki santral, konut ya da sunum için yazın.</span><span data-l="en">Live 3D tours are shared on request. Write to me about your next plant, residence or presentation.</span></p>
+    </div>
+    <div>
+      <p class="label">Betül TOY · <span data-l="tr">Bilgisayar Mühendisi</span><span data-l="en">Computer Engineer</span></p>
+      <div class="share no-print" id="shareBox" hidden><p class="label"><span data-l="tr">Paylaşmak için</span><span data-l="en">To share</span></p><div class="cta" style="margin-top:.6rem"><button class="btn" id="htmlBtn2" type="button"><span data-l="tr">Vitrini indir (HTML, çevrimdışı)</span><span data-l="en">Download showcase (HTML, offline)</span></button><button class="btn" id="pdfBtn2" type="button">PDF</button></div></div>
+      <div class="mail"><code id="mailAddr">betulty06@gmail.com</code><button class="btn no-print" id="copyMail" type="button"><span data-l="tr">Kopyala</span><span data-l="en">Copy</span></button></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Betül TOY · <span data-l="tr">Bilgisayar Mühendisi</span><span data-l="en">Computer Engineer</span></span>
+    <span><span data-l="tr">Logolar ve ürün adları sahiplerine aittir. Bazı doku ve bitki varlıkları Poly Haven (CC0) kaynaklıdır.</span><span data-l="en">Logos and product names belong to their owners. Some texture and plant assets are from Poly Haven (CC0).</span></span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Görsel">
+  <div class="lb-top"><span id="lbCount"></span><button id="lbClose" type="button">× <span data-l="tr">Kapat</span><span data-l="en">Close</span></button></div>
+  <div class="lb-img" id="lbStage"><img id="lbImg" alt=""></div>
+  <div class="lb-bot"><p class="lb-cap" id="lbCap"></p><div style="display:flex;gap:.5rem"><button id="lbPrev" type="button">←</button><button id="lbNext" type="button">→</button></div></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+const root=document.documentElement;
+const IMG={
+ serta:[
+  ['s-saha','Genel saha görünümü','Site overview',1],
+  ['s-panel-siralari','Panel sıraları ve trafo köşkü','Panel rows and transformer kiosk'],
+  ['s-inverter','HYXi dizi invertörü','HYXi string inverter'],
+  ['s-trafo','TR10 trafo köşkü, HTS ve CMB logolarıyla','TR10 transformer kiosk with HTS and CMB branding'],
+  ['s-orman','Orman sınırından sahaya bakış','View into the site from the forest edge'],
+  ['s-kapi','Giriş kapısı ve servis yolu','Entrance gate and service road'],
+  ['s-yol','Doğal zemin ve yürüyüş yolu','Natural ground and walkway'],
+  ['s-hucre','Panel hücreleri ve kelepçeler','Module cells and clamps'],
+  ['s-masa','Panel masası ve taşıyıcılar','Panel table and mounting structure'],
+  ['s-tasiyici','Masa altı bağlantı detayı','Under-table structural detail'],
+  ['s-logolar','HTS ve CMB logoları','HTS and CMB logos'],
+  ['s-hyxi-ekran','HYXi logosu ve durum ekranı','HYXi logo and status display'],
+  ['s-cit','Çit ve tel örgü','Perimeter fence and chain-link mesh'],
+  ['s-ust-gorunus','Saha üst görünüşü','Site plan view from above',1],
+  ['s-dc-kablo','İnvertör DC kablo bağlantıları','Inverter DC cable connections'],
+  ['s-agac','Ağaç varlığı · şeffaf fon','Tree asset · transparent background',0,1]
+ ],
+ sertaUI:[
+  ['ui-genel','Açılış: rota planı ve saha özeti','Start screen: route plan and site summary'],
+  ['ui-panel-foy-400','Panel teknik föyü, %400 büyütme','Module datasheet at 400% zoom'],
+  ['ui-inverter-foy-300','İnvertör teknik föyü, %300 büyütme','Inverter datasheet at 300% zoom'],
+  ['ui-trafo-sekmeler','Trafo köşkü: 3B model ve görseller','Transformer kiosk: 3D model and images'],
+  ['ui-saha','Saha bilgileri ve proje özeti','Site information and project summary'],
+  ['ui-konum-pin','Konum ve yerleşim planı','Location and layout plan'],
+  ['ui-tur-hizi','Rehberli tur, 2× hız','Guided tour at 2× speed'],
+  ['ui-konum-penceresi','Sayfa içi konum penceresi','In-page location window']
+ ],
+ villa:[
+  ['v-hero-on-cephe','Ön cephe','Street facade',1],
+  ['v-genel-proje','Genel görünüm','Aerial overview',1],
+  ['v-salon','Salon','Living room'],
+  ['v-mutfak-yemek','Mutfak ve yemek','Kitchen and dining'],
+  ['v-ana-yatak-odasi','Ebeveyn yatak odası','Master bedroom'],
+  ['v-banyo','Banyo','Bathroom'],
+  ['v-teras','Teras','Terrace',1],
+  ['v-havuz-bahce','Havuz ve bahçe','Pool and garden',1]
+ ]
+};
+const ALL={};Object.values(IMG).flat().forEach(r=>ALL[r[0]]=r);
+['plan-alt','plan-ust'].forEach(k=>ALL[k]=[k,k==='plan-alt'?'Alt kat 3B planı':'Üst kat 3B planı',k==='plan-alt'?'Ground floor 3D plan':'Upper floor 3D plan']);
+let lang='tr', set=[], idx=0;
+const T=(tr,en)=>lang==='en'?en:tr;
+
+function gallery(id,list){
+  const el=document.getElementById(id);el.innerHTML='';
+  list.forEach(([k,tr,en,wide,alpha],i)=>{
+    const b=document.createElement('button');b.type='button';
+    if(wide)b.className='wide';if(alpha)b.classList.add('tree');
+    b.innerHTML=`<img src="${(window.__img?window.__img(k,1):'img/'+k+'-t.webp')}" width="760" height="428" loading="lazy" alt=""><span class="cap"><span data-l="tr">${tr}</span><span data-l="en">${en}</span></span>`;
+    b.querySelector('img').alt=tr;
+    b.addEventListener('click',()=>openLB(list.map(r=>r[0]),i));
+    el.appendChild(b);
+  });
+}
+gallery('g-serta-ui',IMG.sertaUI);gallery('g-serta',IMG.serta);gallery('g-villa',IMG.villa);
+document.querySelectorAll('img[data-lb]').forEach(im=>{im.style.cursor='zoom-in';im.addEventListener('click',()=>openLB([im.dataset.lb],0))});
+
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+function showLB(){const k=set[idx],r=ALL[k];lbImg.src=(window.__img?window.__img(k):`img/${k}.webp`);lbImg.alt=T(r[1],r[2]);
+  document.getElementById('lbCap').textContent=T(r[1],r[2]);document.getElementById('lbCount').textContent=`${idx+1} / ${set.length}`;
+  document.getElementById('lbStage').classList.toggle('alpha',!!r[4]);
+  const multi=set.length>1;document.getElementById('lbPrev').hidden=!multi;document.getElementById('lbNext').hidden=!multi;}
+let lastFocus=null;
+function openLB(keys,i){set=keys;idx=i;lastFocus=document.activeElement;showLB();lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbClose').focus()}
+function closeLB(){lb.hidden=true;document.body.style.overflow='';lbImg.removeAttribute('src');if(lastFocus)lastFocus.focus()}
+function step(d){if(set.length<2)return;idx=(idx+d+set.length)%set.length;showLB()}
+document.getElementById('lbClose').onclick=closeLB;document.getElementById('lbPrev').onclick=()=>step(-1);document.getElementById('lbNext').onclick=()=>step(1);
+lb.addEventListener('click',e=>{if(e.target===lb||e.target.id==='lbStage')closeLB()});
+document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+let sx=null;const st=document.getElementById('lbStage');
+st.addEventListener('pointerdown',e=>sx=e.clientX);st.addEventListener('pointerup',e=>{if(sx!==null&&Math.abs(e.clientX-sx)>50)step(e.clientX<sx?1:-1);sx=null});
+
+/* floor plan — coordinates in the 1024px plan images, Villa A (left) */
+const PLAN={
+ alt:[
+  {id:'salon',tr:'Salon & yemek',en:'Living & dining',a:'28,97',ae:'28.97',r:[155,437,353,238],dtr:'Meşe parke, yemek alanı ve oturma grubu; bahçe terasına açılır.',den:'Oak parquet with dining and seating areas; opens to the garden terrace.'},
+  {id:'mutfak',tr:'Mutfak',en:'Kitchen',a:'9,88',ae:'9.88',r:[155,255,127,182],dtr:'L plan, meşe kapaklar, beyaz kuvars tezgah, ankastre cihazlar.',den:'L-shaped, oak fronts, white quartz worktop, built-in appliances.'},
+  {id:'hol',tr:'Giriş holü',en:'Entrance hall',a:'7,31',ae:'7.31',r:[282,285,90,152],dtr:'Ön cepheden giriş ve üst kata çıkan merdiven.',den:'Front entrance and the stair to the upper floor.'},
+  {id:'wc',tr:'Misafir banyosu',en:'Guest bathroom',a:'4,76',ae:'4.76',r:[372,290,131,93],dtr:'Büyük ebatlı porselen, asma klozet, siyah mat armatürler.',den:'Large-format porcelain, wall-hung WC, matte black fittings.'},
+  {id:'teras',tr:'Bahçe terası',en:'Garden terrace',a:'13,88',ae:'13.88',r:[88,655,242,95],dtr:'Ahşap deck; havuza ve bahçeye bakar. Net iç alana dahil değildir.',den:'Timber deck facing the pool and garden. Not included in net interior area.'}
+ ],
+ ust:[
+  {id:'ebeveyn',tr:'Ebeveyn yatak odası',en:'Master bedroom',a:'16,90',ae:'16.90',r:[300,482,208,186],dtr:'Bahçe ve havuz cephesinde, meşe parke.',den:'On the garden and pool side, oak parquet.'},
+  {id:'y2',tr:'Yatak odası 2',en:'Bedroom 2',a:'10,53',ae:'10.53',r:[158,245,137,187],dtr:'Ön cepheye bakan yatak odası, çalışma masalı.',den:'Street-side bedroom with a desk.'},
+  {id:'y3',tr:'Yatak odası 3',en:'Bedroom 3',a:'11,55',ae:'11.55',r:[158,432,137,213],dtr:'Yan cephe penceresi ve dolap duvarı.',den:'Side-facade window and a wardrobe wall.'},
+  {id:'banyo',tr:'Banyo',en:'Bathroom',a:'8,00',ae:'8.00',r:[300,280,205,85],dtr:'Cam panelli walk-in duş, niş, siyah mat armatürler.',den:'Glass walk-in shower, niche, matte black fittings.'},
+  {id:'uhol',tr:'Üst kat holü',en:'Upper hall',a:'3,57',ae:'3.57',r:[300,365,205,117],dtr:'Merdiven sahanlığı; odalara dağıtım.',den:'Stair landing serving all rooms.'},
+  {id:'uteras',tr:'Üst kat terası',en:'Upper terrace',a:'—',ae:'—',r:[88,655,242,95],dtr:'Cam korkuluk, pergola ve sıcak LED aydınlatma.',den:'Glass balustrade, pergola and warm LED lighting.'}
+ ]};
+const TOTAL={alt:['50,92','50.92'],ust:['50,55','50.55']};
+let floor='alt',active=null;
+const svg=document.getElementById('planSvg'),list=document.getElementById('roomList'),det=document.getElementById('roomDetail');
+function renderPlan(){
+  document.getElementById('planImg').src=(window.__img?window.__img('plan-'+floor):`img/plan-${floor}.webp`);
+  document.getElementById('planImg').alt=T(floor==='alt'?'Alt kat 3B planı':'Üst kat 3B planı',floor==='alt'?'Ground floor 3D plan':'Upper floor 3D plan');
+  const rooms=PLAN[floor];
+  svg.innerHTML=`<rect class="mirror" x="512" y="230" width="430" height="530"/><text class="mirror-t" x="727" y="505" text-anchor="middle">VILLA B</text>`+
+    rooms.map(r=>`<rect class="room" tabindex="0" role="button" data-id="${r.id}" x="${r.r[0]}" y="${r.r[1]}" width="${r.r[2]}" height="${r.r[3]}"><title>${T(r.tr,r.en)}</title></rect>`).join('');
+  list.innerHTML=rooms.map(r=>`<li><button type="button" data-id="${r.id}"><span class="rn">${T(r.tr,r.en)}</span><span class="ra">${T(r.a,r.ae)}${r.a!=='—'?' m²':''}</span></button></li>`).join('')+
+    `<li class="tot"><span>${T(floor==='alt'?'Alt kat toplam (net)':'Üst kat toplam (net)',floor==='alt'?'Ground floor total (net)':'Upper floor total (net)')}</span><span>${T(TOTAL[floor][0],TOTAL[floor][1])} m²</span></li>`;
+  svg.querySelectorAll('.room').forEach(el=>{el.addEventListener('click',()=>pick(el.dataset.id));el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(el.dataset.id)}})});
+  list.querySelectorAll('button').forEach(b=>{b.addEventListener('click',()=>pick(b.dataset.id));b.addEventListener('mouseenter',()=>hi(b.dataset.id));b.addEventListener('mouseleave',()=>hi(active))});
+  if(!rooms.find(r=>r.id===active))active=rooms[0].id;pick(active);
+}
+function hi(id){svg.querySelectorAll('.room').forEach(el=>el.classList.toggle('on',el.dataset.id===id))}
+function pick(id){active=id;hi(id);list.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
+  const r=PLAN[floor].find(x=>x.id===id);det.innerHTML='';const b=document.createElement('b');b.textContent=T(r.tr,r.en)+(r.a!=='—'?` · ${T(r.a,r.ae)} m²`:'');const p=document.createElement('p');p.textContent=T(r.dtr,r.den);p.style.marginTop='.3rem';det.append(b,p)}
+document.querySelectorAll('[data-floor]').forEach(b=>b.addEventListener('click',()=>{floor=b.dataset.floor;document.querySelectorAll('[data-floor]').forEach(x=>x.setAttribute('aria-pressed',x===b));renderPlan()}));
+
+/* language */
+function setLang(l){lang=l==='en'?'en':'tr';root.lang=lang;
+  document.querySelectorAll('[data-set]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===lang));
+  document.title=lang==='en'?'Betül TOY Showcase':'Betül TOY Vitrin';
+  document.getElementById('pdfBtn').setAttribute('aria-label',T('Türkçe PDF portfolyoyu indir','Download the English PDF portfolio'));
+  renderPlan();
+  try{localStorage.setItem('bt-lang',lang)}catch(e){}
+}
+document.querySelectorAll('[data-set]').forEach(b=>b.addEventListener('click',()=>{setLang(b.dataset.set);try{history.replaceState(null,'','#'+lang)}catch(e){location.hash=lang}}));
+let initial=root.getAttribute('data-default-lang')||'tr';const h=location.hash.replace('#','');
+if(h==='en'||h==='tr')initial=h;else if(!root.getAttribute('data-default-lang')){try{initial=localStorage.getItem('bt-lang')||'tr'}catch(e){}}
+setLang(initial);
+addEventListener('hashchange',()=>{const v=location.hash.replace('#','');if(v==='en'||v==='tr')setLang(v)});
+
+/* toast + copy */
+const toast=document.getElementById('toast');
+function say(t){toast.textContent=t;toast.hidden=false;clearTimeout(say.t);say.t=setTimeout(()=>toast.hidden=true,3500)}
+document.getElementById('copyMail').addEventListener('click',()=>{
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mailAddr'));const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText('betulty06@gmail.com').then(()=>say(T('E-posta adresi kopyalandı','Email address copied')),()=>{sel();say(T('Adres seçildi, kopyalayabilirsiniz','Address selected, ready to copy'))})}catch(e){sel()}
+});
+
+
+/* outside claude.ai: plain links for PDF / showcase */
+setTimeout(()=>{
+  if(window.claude&&window.claude.use)return;
+  if(window.__OFFLINE)return;
+  const go=(path)=>{const a=document.createElement('a');a.href=path;a.download=path.split('/').pop();document.body.appendChild(a);a.click();a.remove()};
+  const pdf=()=>go('pdf/'+(lang==='en'?'Betul_TOY_Portfolio_EN.pdf':'Betul_TOY_Portfolyo_TR.pdf'));
+  const htm=()=>go('download/'+(lang==='en'?'Betul_TOY_Showcase_EN.html':'Betul_TOY_Vitrin_TR.html'));
+  [['pdfBtn',pdf],['pdfBtn2',pdf],['htmlBtn',htm],['htmlBtn2',htm]].forEach(([id,fn])=>{const b=document.getElementById(id);b.hidden=false;b.onclick=fn});
+  document.getElementById('shareBox').hidden=false;
+},0);
+/* downloads through the viewer's save prompt: PDF + offline showcase */
+(async()=>{
+  if(!window.claude||!window.claude.use)return;
+  let dl=null;try{dl=await window.claude.use('downloads')}catch(e){}
+  if(!dl)return;
+  async function save(path,name,btn){btn.disabled=true;
+    try{const res=await fetch(path);if(!res.ok)throw new Error();const blob=await res.blob();
+      await dl.save({filename:name,data:blob});say(T('Dosya kaydedildi','File saved'))}
+    catch(e){if(!(e&&e.code==='declined'))say(T('Dosya şu an indirilemedi','The file could not be downloaded right now'))}
+    finally{btn.disabled=false}}
+  const pdf=b=>()=>{const f=lang==='en'?'Betul_TOY_Portfolio_EN.pdf':'Betul_TOY_Portfolyo_TR.pdf';save('pdf/'+f,f,b)};
+  const htm=b=>()=>{const f=lang==='en'?'Betul_TOY_Showcase_EN.html':'Betul_TOY_Vitrin_TR.html';save('download/'+f,f,b)};
+  [['pdfBtn',pdf],['pdfBtn2',pdf],['htmlBtn',htm],['htmlBtn2',htm]].forEach(([id,fn])=>{const b=document.getElementById(id);b.hidden=false;b.addEventListener('click',fn(b))});
+  document.getElementById('shareBox').hidden=false;
+})();
+})();
+
+/* hero slideshow */
+(function(){
+  const sl=[...document.querySelectorAll('.sl')];
+  const caps=[['Serta GES · 22,20 ha · Bayramiç, Çanakkale','Serta Solar · 22.20 ha · Bayramiç, Çanakkale'],['İkiz Villa · Havuz ve bahçe','Twin Villa · Pool and garden'],['Serta GES · Panel sıraları ve TR10 trafo köşkü','Serta Solar · Panel rows and TR10 transformer kiosk'],['İkiz Villa · Genel görünüm','Twin Villa · Aerial overview']];
+  const bars=document.getElementById('tkBars'),cap=document.getElementById('tkCap');bars.innerHTML='';
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i=0,timer=null;
+  sl.forEach((_,k)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+' / '+sl.length);b.innerHTML='<i></i>';b.addEventListener('click',()=>go(k,true));bars.appendChild(b)});
+  const btns=[...bars.children];
+  function label(){const l=document.documentElement.lang==='en'?1:0;cap.textContent=String(i+1).padStart(2,'0')+' / '+String(sl.length).padStart(2,'0')+'  ·  '+caps[i][l]}
+  function go(k,user){i=(k+sl.length)%sl.length;sl.forEach((s,n)=>s.classList.toggle('on',n===i));
+    btns.forEach((b,n)=>{b.classList.remove('on');b.classList.toggle('done',n<i);void b.offsetWidth;if(n===i)b.classList.add('on')});
+    label();clearTimeout(timer);if(!reduce)timer=setTimeout(()=>go(i+1),7000)}
+  new MutationObserver(label).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  go(0);
+})();
+</script>
+</body></html>
