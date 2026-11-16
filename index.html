@@ -48,7 +48,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav{display:flex;gap:1.25rem}
 .nav a{font-family:var(--f-mono);font-size:var(--s-1);text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:var(--muted)}
 .nav a:hover{color:var(--ink)}
-@media (max-width:820px){.nav{display:none}}
+@media (max-width:1100px){.nav{display:none}}
 .seg{display:inline-flex;border:1px solid var(--ink)}
 .seg button{background:none;border:0;padding:.35rem .6rem;font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.06em}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
@@ -82,6 +82,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .index{padding-block:3rem 1rem}
 .index-list{display:grid;gap:1.25rem;grid-template-columns:1fr;margin-top:1.25rem}
 @media (min-width:760px){.index-list{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.index-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .card{display:grid;grid-template-rows:auto 1fr;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
 .card img{aspect-ratio:16/9;object-fit:cover;width:100%;transition:transform .5s}
 .card .ph{overflow:hidden}
@@ -120,8 +121,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .gal img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .45s,opacity .3s}
 .gal button:hover img{transform:scale(1.04)}
 .gal .cap{position:absolute;inset:auto 0 0 0;padding:.35rem .5rem;background:linear-gradient(transparent,rgba(8,12,11,.78));color:var(--on-dark);font-family:var(--f-mono);font-size:.66rem;letter-spacing:.04em}
-.gal .wide{grid-column:span 2}
-.gal .wide img{aspect-ratio:16/9}
+.gal{grid-auto-flow:row dense}
+.gal .wide{grid-column:span 2;grid-row:span 2}
+.gal .wide img{aspect-ratio:auto;height:100%}
+.gal.ui .wide{grid-row:auto}
 .gal.ui{grid-template-columns:1fr}
 @media (min-width:760px){.gal.ui{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1100px){.gal.ui{grid-template-columns:repeat(4,minmax(0,1fr))}}
@@ -290,6 +293,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 @media print{.cine{min-height:0;break-after:page}.cine-in{padding-block:4rem 2rem}.cta,.ticker{display:none}.about{break-after:page}}
 .by{font-family:var(--f-mono);font-weight:400;font-size:.72rem;letter-spacing:.04em;color:var(--cell)}
 .share{margin-bottom:1.6rem}
+.live{white-space:nowrap;align-self:end}
+.bars{display:grid;gap:.55rem;margin-top:.2rem}
+.obr{display:grid;grid-template-columns:5.5rem 1fr auto;gap:.6rem;align-items:center;font-size:var(--s0)}
+.bl{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.bt{height:10px;background:var(--line);position:relative}
+.bt i{position:absolute;inset:0 auto 0 0;background:var(--muted)}
+.bt i.ok{background:var(--cell)}
+.obr b{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums}
 </style>
 
 <header class="bar">
@@ -298,6 +309,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     <nav class="nav" aria-label="Bölümler">
       <a href="#serta"><span data-l="tr">Serta GES</span><span data-l="en">Serta Solar</span></a>
       <a href="#villa"><span data-l="tr">İkiz Villa</span><span data-l="en">Twin Villa</span></a>
+      <a href="#konut"><span data-l="tr">Konut</span><span data-l="en">Housing</span></a>
       <a href="#yetkinlik"><span data-l="tr">Yetkinlikler</span><span data-l="en">Capabilities</span></a>
       <a href="#iletisim"><span data-l="tr">İletişim</span><span data-l="en">Contact</span></a>
     </nav>
@@ -314,6 +326,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
 <section class="cine" aria-label="Giriş">
   <div class="slides" aria-hidden="true">
     <img class="sl on" src="img/s-saha.webp" alt="" width="1600" height="900">
+    <img class="sl" src="img/k-hero.webp" alt="" width="1600" height="900">
     <img class="sl" src="img/v-havuz-bahce.webp" alt="" width="1600" height="900">
     <img class="sl" src="img/s-panel-siralari.webp" alt="" width="1600" height="900">
     <img class="sl" src="img/v-genel-proje.webp" alt="" width="1600" height="900">
@@ -329,7 +342,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
     </div>
     <div class="cine-foot">
       <dl class="proof">
-        <div><dt><span data-l="tr">Teslim edilen proje</span><span data-l="en">Projects delivered</span></dt><dd>2</dd></div>
+        <div><dt><span data-l="tr">Teslim edilen proje</span><span data-l="en">Projects delivered</span></dt><dd>3</dd></div>
         <div><dt><span data-l="tr">Modellenen panel</span><span data-l="en">Panels modelled</span></dt><dd><span data-l="tr">38.246</span><span data-l="en">38,246</span></dd></div>
         <div><dt><span data-l="tr">Dijital saha</span><span data-l="en">Digital site</span></dt><dd><span data-l="tr">22,20 ha</span><span data-l="en">22.20 ha</span></dd></div>
         <div><dt><span data-l="tr">Arayüz dili</span><span data-l="en">Interface languages</span></dt><dd>TR · EN</dd></div>
@@ -350,7 +363,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
         <h2 id="aboutH"><span data-l="tr">Bir bilgisayar mühendisinin gözünden 3B görselleştirme</span><span data-l="en">3D visualization through a computer engineer's eyes</span></h2>
       </div>
       <div class="about-txt">
-        <p><span data-l="tr">Bilgisayar mühendisiyim. Görselleştirmeye bir yazılım projesi gibi yaklaşıyorum: veri doğru okunur, model ölçeklenebilir kurulur, deneyim test edilir ve belgelenerek teslim edilir. Bu sayede 38.246 panellik bir santral de, iki katlı bir villa da aynı titizlikle tarayıcıda akıcı çalışır.</span><span data-l="en">I am a computer engineer, and I approach visualization like a software project: the data is read correctly, the model is built to scale, the experience is tested, and the delivery is documented. That is how a 38,246-panel plant and a two-storey villa both run smoothly in a browser with the same rigour.</span></p>
+        <p><span data-l="tr">Bilgisayar mühendisiyim. Görselleştirmeye bir yazılım projesi gibi yaklaşıyorum: veri doğru okunur, model ölçeklenebilir kurulur, deneyim test edilir ve belgelenerek teslim edilir. Bu sayede 38.246 panellik bir santral, iki katlı bir villa ve 136 daireli bir konut projesi aynı titizlikle tarayıcıda akıcı çalışır.</span><span data-l="en">I am a computer engineer, and I approach visualization like a software project: the data is read correctly, the model is built to scale, the experience is tested, and the delivery is documented. That is how a 38,246-panel plant, a two-storey villa and a 136-flat housing scheme all run smoothly in a browser with the same rigour.</span></p>
         <p class="sig"><b>Betül TOY</b><span data-l="tr">Bilgisayar Mühendisi · 3B Görselleştirme ve Dijital İkiz</span><span data-l="en">Computer Engineer · 3D Visualization and Digital Twins</span></p>
       </div>
     </div>
@@ -374,6 +387,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
       <a class="card" href="#villa">
         <div class="ph"><img src="img/v-havuz-bahce-t.webp" alt="" width="760" height="428" loading="lazy"></div>
         <div class="meta"><span class="code">P-02 · KONUT / RESIDENTIAL</span><h3><span data-l="tr">İkiz Villa</span><span data-l="en">Twin Villa</span></h3><p><span data-l="tr">İki simetrik 3+1 villa için fotogerçekçi render seti ve gündüz/gece sanal tur.</span><span data-l="en">A photorealistic render set and a day/night virtual tour for two mirrored 3+1 villas.</span></p></div>
+      </a>
+      <a class="card" href="#konut">
+        <div class="ph"><img src="img/k-hero-t.webp" alt="" width="760" height="428" loading="lazy"></div>
+        <div class="meta"><span class="code">P-03 · KONUT / RESIDENTIAL · CANLI TUR</span><h3><span data-l="tr">Toplu Konut Projesi</span><span data-l="en">Residential Development</span></h3><p><span data-l="tr">136 daireli iki blok için satış durumu, daire kartları ve örnek dairelerde yürüyüş sunan canlı WebGL satış turu.</span><span data-l="en">A live WebGL sales tour for a two-block, 136-flat scheme with availability, unit cards and walk-through show flats.</span></p></div>
       </a>
     </div>
   </div>
@@ -528,6 +545,96 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
   </div>
 </article>
 
+<!-- ============ PROJECT 3 ============ -->
+<article class="project" id="konut">
+  <div class="wrap">
+    <div class="p-head">
+      <div>
+        <span class="code">P-03</span>
+        <h2 style="margin-top:.4rem"><span data-l="tr">Toplu Konut Projesi</span><span data-l="en">Residential Development</span></h2>
+        <p class="sub"><span data-l="tr">Avlu çevresinde iki bloktan oluşan bir konut projesi; 2B mimari planlardan, müşterinin kendi sitesine gömebileceği tarayıcı tabanlı etkileşimli bir satış turuna.</span><span data-l="en">A two-block scheme around a landscaped courtyard, taken from 2D architectural plans to a browser-based interactive sales tour the client can embed on their own website.</span></p>
+      </div>
+      <a class="btn solid live" href="https://betul-toy.github.io/konut-sanal-tur/" target="_blank" rel="noopener"><span data-l="tr">Canlı turu aç</span><span data-l="en">Open the live tour</span> ↗</a>
+    </div>
+
+    <div class="tblock">
+      <div><span class="label"><span data-l="tr">Hazırlayan</span><span data-l="en">Prepared by</span></span><span class="v">Betül TOY</span></div>
+      <div><span class="label"><span data-l="tr">Program</span><span data-l="en">Programme</span></span><span class="v"><span data-l="tr">2 blok · zemin kat dükkânlar · 8 konut katı</span><span data-l="en">2 blocks · ground-floor shops · 8 residential floors</span></span></div>
+      <div><span class="label"><span data-l="tr">Süre</span><span data-l="en">Period</span></span><span class="v"><span data-l="tr">2–16 Kasım 2026</span><span data-l="en">2–16 November 2026</span></span></div>
+      <div><span class="label"><span data-l="tr">Araçlar</span><span data-l="en">Tools</span></span><span class="v">Blender 5.2 · Unity 6 URP 17 · Python · C#</span></div>
+      <div><span class="label"><span data-l="tr">Yayın</span><span data-l="en">Hosting</span></span><span class="v">WebGL · GitHub Pages</span></div>
+    </div>
+
+    <figure class="cover" style="margin-inline:0"><img src="img/k-hero.webp" alt="Toplu konut projesi, gün batımında A Blok" data-lb="k-hero" width="1600" height="900" loading="lazy"><span class="tag"><span data-l="tr">A Blok · gün batımı ışığı, gerçek zamanlı (Unity URP)</span><span data-l="en">Block A · sunset light, real time (Unity URP)</span></span></figure>
+
+    <div class="story">
+      <section><h3><span data-l="tr">İhtiyaç</span><span data-l="en">Brief</span></h3><p><span data-l="tr">Gerçek bir konut projesini, alıcının binayı çevirip boş daireleri görebildiği ve döşenmiş örnek dairelerin içinde yürüyebildiği bir satış aracına dönüştürmek. Araç, müşterinin web sitesine gömülebilmeliydi.</span><span data-l="en">Turn a real housing scheme into a sales tool: buyers orbit the building, see which flats are free and walk through furnished show flats. The tool had to embed on the client's website.</span></p></section>
+      <section><h3><span data-l="tr">Yaklaşım</span><span data-l="en">Approach</span></h3><p><span data-l="tr">Planlar ölçü, daire listesi ve oda alanlarına çevrildi. Bina, örnek daireler ve peyzaj Blender'da Python betik zinciriyle üretildi; Unity 6'da malzemeler, ışık ve tüm tur C# editör betikleriyle kuruldu. Her geri bildirim elle düzenleme yerine betik değişikliği ve baştan derleme oldu.</span><span data-l="en">The plans became dimensions, unit lists and room areas. The building, show flats and site were generated by a chain of Python scripts in Blender; in Unity 6, materials, lighting and the whole tour were built by C# editor scripts. Every round of feedback became a script change and a full rebuild instead of manual edits.</span></p></section>
+      <section><h3><span data-l="tr">Rolüm</span><span data-l="en">My role</span></h3><p><span data-l="tr">Plan ve alan analizi, Python ile modelleme, örnek daire iç mimarisi, render, Unity aydınlatma ve otomasyon, tur arayüzü ve etkileşimleri, WebGL optimizasyonu ve GitHub Pages yayını.</span><span data-l="en">Plan and area analysis, scripted modelling in Python, show-flat interiors, renders, Unity lighting and automation, tour interface and interactions, WebGL optimisation and GitHub Pages publishing.</span></p></section>
+      <section><h3><span data-l="tr">Sonuç</span><span data-l="en">Outcome</span></h3><p><span data-l="tr">İlk WebGL derlemesi 316 MB'tan 111 MB'a indirildi; tur masaüstü ve mobil tarayıcılarda çalışıyor ve yayında. Ek olarak 70 saniyelik sinematik film ve 27 adet 3840×2160 portfolyo görseli teslim edildi.</span><span data-l="en">The first WebGL build went from 316 MB to 111 MB; the tour runs in desktop and mobile browsers and is live. A 70-second cinematic film and 27 portfolio frames at 3840×2160 were also delivered.</span></p></section>
+    </div>
+
+    <div class="figs">
+      <div><b>2</b><span data-l="tr">Blok</span><span data-l="en">Blocks</span></div>
+      <div><b>136</b><span data-l="tr">Daire</span><span data-l="en">Flats</span></div>
+      <div><b>14</b><span data-l="tr">Dükkân</span><span data-l="en">Shops</span></div>
+      <div><b>522</b><span data-l="tr">Çalışan kapı</span><span data-l="en">Working doors</span></div>
+      <div><b>20</b><span data-l="tr">Trafikte araç</span><span data-l="en">Cars in traffic</span></div>
+      <div><b>111<small>MB</small></b><span data-l="tr">Web paketi</span><span data-l="en">Web build</span></div>
+    </div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Etkileşimli satış turu</span><span data-l="en">The interactive sales tour</span></h3>
+      <p><span data-l="tr">Turdan gerçek ekran görüntüleri. Kat bandının üzerine gelince kat kartı, daireye tıklayınca net/brüt alan ve oda alanlarıyla daire kartı açılır. Satış durumları örnek veridir.</span><span data-l="en">Real screenshots from the tour. Hover a floor band to open its floor card; click a flat for a unit card with net/gross and room areas. Sales statuses are sample data.</span></p>
+    </div>
+    <div class="gal ui" id="g-konut-ui"></div>
+
+    <div class="specs">
+      <div class="spec"><h4><span data-l="tr">Daire tipi · 1+1</span><span data-l="en">Unit type · 1+1</span></h4><dl>
+        <dt><span data-l="tr">Alan</span><span data-l="en">Area</span></dt><dd><span data-l="tr">50,5 m² net · 65 m² brüt</span><span data-l="en">50.5 m² net · 65 m² gross</span></dd>
+        <dt><span data-l="tr">Plan</span><span data-l="en">Layout</span></dt><dd><span data-l="tr">L mutfaklı salon, bitkili ayırıcı, yatak odası, banyo</span><span data-l="en">Living room with L-kitchen and planted divider, bedroom, bathroom</span></dd>
+        <dt><span data-l="tr">Örnek</span><span data-l="en">Show flat</span></dt><dd>A-07 · <span data-l="tr">2. kat</span><span data-l="en">floor 2</span></dd></dl></div>
+      <div class="spec"><h4><span data-l="tr">Daire tipi · 2+1</span><span data-l="en">Unit type · 2+1</span></h4><dl>
+        <dt><span data-l="tr">Alan</span><span data-l="en">Area</span></dt><dd><span data-l="tr">75,5 m² net · 95 m² brüt</span><span data-l="en">75.5 m² net · 95 m² gross</span></dd>
+        <dt><span data-l="tr">Plan</span><span data-l="en">Layout</span></dt><dd><span data-l="tr">Tam derinlikte salon, ayrı mutfak, yatak odası, küvetli banyo, balkonlar</span><span data-l="en">Full-depth living room, separate kitchen, bedroom, bathroom with bath, balconies</span></dd>
+        <dt><span data-l="tr">Örnek</span><span data-l="en">Show flat</span></dt><dd>A-06 · <span data-l="tr">2. kat</span><span data-l="en">floor 2</span></dd></dl></div>
+      <div class="spec"><h4><span data-l="tr">Web optimizasyonu</span><span data-l="en">Web optimisation</span></h4>
+        <div class="bars" role="img" aria-label="316 MB → 111 MB">
+          <div class="obr"><span class="bl"><span data-l="tr">İlk derleme</span><span data-l="en">First build</span></span><span class="bt"><i style="width:100%"></i></span><b>316 MB</b></div>
+          <div class="obr"><span class="bl"><span data-l="tr">Yayındaki</span><span data-l="en">Live build</span></span><span class="bt"><i class="ok" style="width:35.1%"></i></span><b>111 MB</b></div>
+        </div>
+        <p class="note" style="margin-top:.6rem"><span data-l="tr">Tek bir ağaç modeli verinin 235 MB'ıydı; betikle inceltildi (3,6 M → 0,87 M köşe). Mesh sıkıştırma, 1024 px doku sınırı ve GitHub'a uygun 10 parçalı paralel yükleyici.</span><span data-l="en">One tree model was 235 MB of the data; it was thinned by script (3.6 M → 0.87 M vertices). Mesh compression, a 1024 px texture limit and a GitHub-friendly 10-part parallel loader.</span></p></div>
+    </div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Örnek daireler</span><span data-l="en">Show flats</span></h3>
+      <p><span data-l="tr">Mobilyalar ölçülü parçalardan kodla üretildi: bouclé kanepe, oluklu meşe TV duvarı, ceviz yemek masası, Calacatta mutfak, traverten banyolar. Her nesne taşıyıcı yüzeyinden yerleştirildi.</span><span data-l="en">Furniture was built in code from measured parts: a bouclé sofa, fluted oak TV wall, walnut dining table, Calacatta kitchen and travertine bathrooms. Every object is placed from its supporting surface.</span></p>
+    </div>
+    <div class="gal" id="g-konut-ic"></div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Bina, avlu ve çevre</span><span data-l="en">Building, courtyard and streets</span></h3>
+      <p><span data-l="tr">Gündüz, gün batımı ve akşam ışık senaryoları; oyun alanlı avlu, bina girişleri ve iki yönlü trafikte 20 araç.</span><span data-l="en">Day, sunset and evening lighting; a courtyard with a playground, building entrances and 20 cars in two-way traffic.</span></p>
+    </div>
+    <div class="gal" id="g-konut-dis"></div>
+
+    <div class="sect-h">
+      <h3><span data-l="tr">Tur özellikleri</span><span data-l="en">Tour features</span></h3>
+      <p><span data-l="tr">Tamamı C# editör betikleriyle kurulur; tek komut veriyi, kapıları, kameraları, gökyüzünü, arayüzü ve trafiği yeniden üretir.</span><span data-l="en">Built entirely by C# editor scripts; one command rebuilds data, doors, cameras, sky, interface and traffic.</span></p>
+    </div>
+    <dl class="feat">
+      <div><dt><span data-l="tr">Giriş sayfası</span><span data-l="en">Hero page</span></dt><dd><span data-l="tr">Başlık, proje rakamları ve gündüz / gün batımı / akşam seçimi</span><span data-l="en">Headline, project figures and a day / sunset / evening switch</span></dd></div>
+      <div><dt><span data-l="tr">Kat seçici</span><span data-l="en">Floor picker</span></dt><dd><span data-l="tr">Kat kartı ve net/brüt alanlı daire kartı</span><span data-l="en">Floor card and unit card with net/gross areas</span></dd></div>
+      <div><dt><span data-l="tr">Satış durumu</span><span data-l="en">Availability</span></dt><dd><span data-l="tr">Satıldı / rezerve / müsait renkli hacimler, halka grafik ve sayılar</span><span data-l="en">Sold / reserved / available glowing volumes, ring chart and counts</span></dd></div>
+      <div><dt><span data-l="tr">İzometrik planlar</span><span data-l="en">Isometric plans</span></dt><dd><span data-l="tr">2+1 ve 1+1 için oda etiketli beyaz model kesitler</span><span data-l="en">White-model cut-aways of the 2+1 and 1+1 with room tags</span></dd></div>
+      <div><dt><span data-l="tr">Gezinti</span><span data-l="en">Walk-through</span></dt><dd><span data-l="tr">WASD + fare, mobilde joystick; yaklaşınca açılan kapılar, kayan lobi kapıları, merdivenler, mini harita</span><span data-l="en">WASD + mouse, joystick on phones; doors that open on approach, sliding lobby doors, stairs, minimap</span></dd></div>
+      <div><dt><span data-l="tr">Trafik</span><span data-l="en">Traffic</span></dt><dd><span data-l="tr">Öndeki araca ve kavşaklara göre yavaşlayan 20 araç</span><span data-l="en">20 cars that slow for the car ahead and at junctions</span></dd></div>
+      <div><dt><span data-l="tr">Test otomasyonu</span><span data-l="en">Test automation</span></dt><dd><span data-l="tr">Rotaları gerçek hareket girdisiyle yürüyen otomatik test yürüteci</span><span data-l="en">An auto-walker that tests routes with real movement input</span></dd></div>
+      <div><dt><span data-l="tr">Diğer</span><span data-l="en">Also</span></dt><dd><span data-l="tr">TR | EN arayüz, iletişim formu, 70 sn sinematik film</span><span data-l="en">TR | EN interface, contact form, 70-second cinematic film</span></dd></div>
+    </dl>
+  </div>
+</article>
+
 <!-- ============ CAPABILITIES ============ -->
 <section class="caps" id="yetkinlik">
   <div class="wrap">
@@ -540,7 +647,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-be
       <article><h3><span data-l="tr">Teslim mühendisliği</span><span data-l="en">Delivery engineering</span></h3><p><span data-l="tr">Siteye gömme kodu, kullanım kılavuzu, kontrol raporu, dosya bütünlüğü listesi ve düzenlenebilir kaynak projeler.</span><span data-l="en">Embed snippets, user guides, test reports, file-integrity manifests and editable source projects.</span></p></article>
     </div>
     <div class="tools">
-      <span>Blender 5.2 · Cycles</span><span>Unity 6 · URP</span><span>WebGL 2</span><span>C# · HLSL</span><span>FBX · JSON</span><span>DWG</span><span>iframe · Next.js embed</span>
+      <span>Blender 5.2 · Cycles</span><span>Unity 6 · URP</span><span>WebGL 2</span><span>C# · HLSL</span><span>Python</span><span>GitHub Pages</span><span>FBX · JSON</span><span>DWG</span><span>iframe · Next.js embed</span>
     </div>
   </div>
 </section>
@@ -581,9 +688,9 @@ const root=document.documentElement;
 const IMG={
  serta:[
   ['s-saha','Genel saha görünümü','Site overview',1],
-  ['s-panel-siralari','Panel sıraları ve trafo köşkü','Panel rows and transformer kiosk'],
+  ['s-panel-siralari','Panel sıraları ve trafo köşkü','Panel rows and transformer kiosk',1],
   ['s-inverter','HYXi dizi invertörü','HYXi string inverter'],
-  ['s-trafo','TR10 trafo köşkü, HTS ve CMB logolarıyla','TR10 transformer kiosk with HTS and CMB branding'],
+  ['s-trafo','TR10 trafo köşkü, HTS ve CMB logolarıyla','TR10 transformer kiosk with HTS and CMB branding',1],
   ['s-orman','Orman sınırından sahaya bakış','View into the site from the forest edge'],
   ['s-kapi','Giriş kapısı ve servis yolu','Entrance gate and service road'],
   ['s-yol','Doğal zemin ve yürüyüş yolu','Natural ground and walkway'],
@@ -606,6 +713,39 @@ const IMG={
   ['ui-konum-pin','Konum ve yerleşim planı','Location and layout plan'],
   ['ui-tur-hizi','Rehberli tur, 2× hız','Guided tour at 2× speed'],
   ['ui-konum-penceresi','Sayfa içi konum penceresi','In-page location window']
+ ],
+ konutUI:[
+  ['k-hero-ui','Giriş sayfası: başlık ve proje rakamları','Hero page: headline and project figures'],
+  ['k-satis-tumu','Satış durumu: tüm daireler (örnek veri)','Availability: all flats (sample data)'],
+  ['k-satis-satildi','Satış durumu: satılan daireler','Availability: sold flats'],
+  ['k-satis-musait','Satış durumu: müsait daireler','Availability: available flats'],
+  ['k-kat-karti','Kat kartı: 5. kat, tüm daireler','Floor card: floor 5, all flats'],
+  ['k-daire-karti','Daire kartı: A-5-06, 2+1, 75,5 m² net','Unit card: A-5-06, 2+1, 75.5 m² net'],
+  ['k-izo-21-ui','İzometrik 2+1, oda etiketleriyle','Isometric 2+1 with room tags'],
+  ['k-21-salon-ui','Örnek daire içinde oda kartı','Room card inside the show flat']
+ ],
+ konutIc:[
+  ['k-21-salon','2+1 · Salon','2+1 · Living room',1],
+  ['k-21-salon-kose','2+1 · Salon, köşe görünüm','2+1 · Living room, corner view',1],
+  ['k-izo-21','İzometrik kesit · 2+1','Isometric cut-away · 2+1',1],
+  ['k-21-yemek','2+1 · Yemek alanı','2+1 · Dining'],
+  ['k-21-mutfak','2+1 · Mutfak','2+1 · Kitchen'],
+  ['k-21-yatak','2+1 · Yatak odası','2+1 · Bedroom'],
+  ['k-21-banyo','2+1 · Banyo','2+1 · Bathroom'],
+  ['k-11-salon','1+1 · Salon','1+1 · Living room'],
+  ['k-11-bar','1+1 · Mutfak ve bar','1+1 · Kitchen and bar'],
+  ['k-11-yatak','1+1 · Yatak odası','1+1 · Bedroom'],
+  ['k-izo-11','İzometrik kesit · 1+1','Isometric cut-away · 1+1']
+ ],
+ konutDis:[
+  ['k-gunduz','A Blok · gündüz','Block A · day',1],
+  ['k-aksam','A Blok · akşam','Block A · evening',1],
+  ['k-cadde','Cadde ve trafik','Street and traffic',1],
+  ['k-avlu','Avlu ve oyun alanı','Courtyard and playground',1],
+  ['k-katlar','A Blok · kat bantları','Block A · floor bands'],
+  ['k-b-blok','B Blok','Block B'],
+  ['k-giris','Bina girişi, kayan kapılar','Building entrance, sliding doors'],
+  ['k-hero','A Blok · gün batımı','Block A · sunset']
  ],
  villa:[
   ['v-hero-on-cephe','Ön cephe','Street facade',1],
@@ -634,7 +774,7 @@ function gallery(id,list){
     el.appendChild(b);
   });
 }
-gallery('g-serta-ui',IMG.sertaUI);gallery('g-serta',IMG.serta);gallery('g-villa',IMG.villa);
+gallery('g-serta-ui',IMG.sertaUI);gallery('g-serta',IMG.serta);gallery('g-villa',IMG.villa);gallery('g-konut-ui',IMG.konutUI);gallery('g-konut-ic',IMG.konutIc);gallery('g-konut-dis',IMG.konutDis);
 document.querySelectorAll('img[data-lb]').forEach(im=>{im.style.cursor='zoom-in';im.addEventListener('click',()=>openLB([im.dataset.lb],0))});
 
 const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
@@ -742,7 +882,7 @@ setTimeout(()=>{
 /* hero slideshow */
 (function(){
   const sl=[...document.querySelectorAll('.sl')];
-  const caps=[['Serta GES · 22,20 ha · Bayramiç, Çanakkale','Serta Solar · 22.20 ha · Bayramiç, Çanakkale'],['İkiz Villa · Havuz ve bahçe','Twin Villa · Pool and garden'],['Serta GES · Panel sıraları ve TR10 trafo köşkü','Serta Solar · Panel rows and TR10 transformer kiosk'],['İkiz Villa · Genel görünüm','Twin Villa · Aerial overview']];
+  const caps=[['Serta GES · 22,20 ha · Bayramiç, Çanakkale','Serta Solar · 22.20 ha · Bayramiç, Çanakkale'],['Toplu Konut · Gün batımı, A Blok','Residential Development · Sunset, Block A'],['İkiz Villa · Havuz ve bahçe','Twin Villa · Pool and garden'],['Serta GES · Panel sıraları ve TR10 trafo köşkü','Serta Solar · Panel rows and TR10 transformer kiosk'],['İkiz Villa · Genel görünüm','Twin Villa · Aerial overview']];
   const bars=document.getElementById('tkBars'),cap=document.getElementById('tkCap');bars.innerHTML='';
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let i=0,timer=null;
